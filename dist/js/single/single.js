@@ -30,6 +30,7 @@ let resultsCount;
 let howManyDice; 
 let diceClickCount;
 let minToRoll;
+let rollCount;
 
 var pScoreE = new Array(2);
 var pMoveFirst = new Array(2);
@@ -43,6 +44,7 @@ async function toggleRound() {
     stopBtnDisable();
     resignBtnDisable();
     diceClickDisable();
+    rollCount++;
 
     //reset dice loop
     for (var i = 0; i < 5; i++) {
@@ -76,7 +78,7 @@ async function toggleRound() {
         }
     }
     
-    if (diceClickCount >= 1) {
+    if (diceClickCount >= 1 && rollCount < 3) {
         rollBtnEnable();
     }
     resignBtnEnable();
@@ -97,6 +99,7 @@ async function toggleStop() {
             scoreTemp = 0;
             score = 0;
             diceClickCount = 0;
+            rollCount = 0;
 
             resetDice();
 
@@ -139,6 +142,7 @@ async function toggleStop() {
             scoreTemp = 0;
             score = 0;
             diceClickCount = 0;
+            rollCount = 0;
 
             resetDice();
 
@@ -178,6 +182,7 @@ async function toggleStop() {
     scoreTemp = 0;
     score = 0;
     diceClickCount = 0;
+    rollCount = 0;
 
     resetDice();
 
@@ -234,6 +239,7 @@ function newGame() {
     resultsCount = 0;
     diceClickCount = 0;
     minToRoll = 1;
+    rollCount = 0;
 
     pScoreE[0] = 0;
     pScoreE[1] = 0;
@@ -796,7 +802,7 @@ function first50() {
         rollBtnDisable();
     }
 
-    if (diceClickCount >= 1) {
+    if (diceClickCount >= 1 && rollCount < 3) {
         rollBtnEnable();
     }
 }
@@ -835,7 +841,7 @@ function first50Safe() {
         rollBtnDisable();
     }
 
-    if (diceClickCount >= 1) {
+    if (diceClickCount >= 1 && rollCount < 3) {
         rollBtnEnable();
     }
 }
@@ -847,6 +853,7 @@ function diceClickCountF() {
         console.log("result count: "+resultsCount);
         if (resultsCount == 5) {
             scoreTemp = scoreSum;
+            rollCount = 0;
             resetDice();
         }
     }
