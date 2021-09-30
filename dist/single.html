@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Dice 1000 v2</title>
+</head>
+<body>
+    <div class="exit_single" onclick="location.href='index.html'">Exit</div>
+    <section class="single">
+        <div class="endGame">
+            <div class="whoWon">You</div>
+            <span id="wonText">Won!</span>
+            <h3>Do you want to restart game or go back to the menu?</h3>
+            <div class="endGameBtns">
+                <div class="restartBtn">Restart</div>
+                <div class="exitBtn">Exit</div>
+            </div>
+        </div>
+        <h2>DICE 1000</h2>
+        <div class="score">
+            <h3>Score:</h3>
+            <h3 class="roundScore">0</h3>
+        </div>
+        <div class="boxesContainer">
+            <div class="box">
+                <div class="box-title">Roll</div>
+                <div class="diceShadow">
+                    <div class="dice" >?</div>
+                </div>
+                <div class="diceShadow">
+                    <div class="dice" >?</div>
+                </div>
+                <div class="diceShadow">
+                    <div class="dice" >?</div>
+                </div>
+                <div class="diceShadow">
+                    <div class="dice" >?</div>
+                </div>
+                <div class="diceShadow">
+                    <div class="dice" >?</div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-title">Safe</div>
+                <div class="diceShadow">
+                    <div class="diceSafe" >?</div>
+                </div>
+                <div class="diceShadow">
+                    <div class="diceSafe" >?</div>
+                </div>
+                <div class="diceShadow">
+                    <div class="diceSafe" >?</div>
+                </div>
+                <div class="diceShadow">
+                    <div class="diceSafe" >?</div>
+                </div>
+                <div class="diceShadow">
+                    <div class="diceSafe" >?</div>
+                </div>
+            </div>
+        </div>
+        <div class="btnContainer">
+            <div class="btnBox">
+                <div class="rollBtn">Roll</div>
+            </div>
+            <div class="btnBox">
+                <div class="stopBtn">Stop</div>
+            </div>
+            <div class="btnBox">
+                <div class="resignBtn">Resign</div>
+            </div>
+        </div>
+        <div class="pContainer">
+            <div class="pShadow">
+                <div class="pBox">
+                    <span class="pName">Player 1</span>
+                    <span class="pScore">0</span>
+                    <h6>Points</h6>
+                </div>
+            </div>
+            <div class="pShadow">
+                <div class="pBox">
+                    <span class="pName">Player 2</span>
+                    <span class="pScore">0</span>
+                    <h6>Points</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="js/single/single.js"></script>
+</body>
+</html>

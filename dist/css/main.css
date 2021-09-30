@@ -1,0 +1,603 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.home {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home h2 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.home button {
+  height: 4rem;
+  width: 15rem;
+  background: #eee;
+  color: #BE8615;
+  padding: 0;
+  margin-bottom: 2rem;
+  border: 3px solid #BE8615;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.home button:hover {
+  cursor: pointer;
+  background: #f7e9cc;
+}
+
+.exit_single {
+  position: absolute;
+  padding: 0.3rem 0.7rem;
+  top: 0.5rem;
+  right: 0.6rem;
+  color: #eee;
+  font-size: 1.5rem;
+  font-weight: 700;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.exit_single:hover {
+  background: #d89a1f;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single {
+  background: #E4AF46;
+  color: #eee;
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.single .score {
+  width: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.single .score h3 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.single .score > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 5rem;
+          flex: 1 1 5rem;
+}
+
+.single .boxesContainer {
+  width: 80vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin-top: 2rem;
+}
+
+.single .boxesContainer .box {
+  background: #BE8615;
+  height: 20rem;
+  width: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.single .boxesContainer .box .box-title {
+  position: absolute;
+  color: #f6dca9;
+  padding: 0.4rem;
+  font-size: 1.5rem;
+}
+
+.single .boxesContainer .box .diceShadow {
+  height: 8rem;
+  margin: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.single .boxesContainer .box .diceShadow .dice {
+  background: #eee;
+  color: #BE8615;
+  height: 6rem;
+  width: 6rem;
+  font-size: 4rem;
+  font-weight: 700;
+  padding-top: 0.2rem;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .boxesContainer .box .diceShadow .dice.diceDisplay {
+  display: none;
+}
+
+.single .boxesContainer .box .diceShadow .dice.diceClick {
+  cursor: pointer;
+}
+
+.single .boxesContainer .box .diceShadow .dice.diceColorRed {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background: #DB3434;
+}
+
+.single .boxesContainer .box .diceShadow .diceSafe {
+  background: #eee;
+  color: #BE8615;
+  height: 6rem;
+  width: 6rem;
+  font-size: 4rem;
+  font-weight: 700;
+  padding-top: 0.2rem;
+}
+
+.single .boxesContainer .box .diceShadow .diceSafe.diceDisplay {
+  display: none;
+}
+
+.single .boxesContainer .box .diceShadow .diceSafe.diceClick {
+  cursor: pointer;
+}
+
+.single .boxesContainer .box:first-child {
+  margin-right: 2rem;
+}
+
+.single .boxesContainer .box > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 8rem;
+          flex: 1 1 8rem;
+}
+
+.single .boxesContainer > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20rem;
+          flex: 1 1 20rem;
+}
+
+.single .btnContainer {
+  width: 50vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin-top: 1.5rem;
+}
+
+.single .btnContainer .btnBox {
+  height: 4rem;
+  margin: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single .btnContainer .btnBox .rollBtn {
+  height: 4rem;
+  width: 8rem;
+  background: #7CA43C;
+  padding: 0.8rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single .btnContainer .btnBox .rollBtn:hover {
+  background: #607f2e;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .btnContainer .btnBox .rollBtn.btnDisabled {
+  background: #333825;
+  cursor: default;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .btnContainer .btnBox .rollBtn.btnDisabled:hover {
+  background: #333825;
+}
+
+.single .btnContainer .btnBox .stopBtn {
+  height: 4rem;
+  width: 8rem;
+  background: #DB3434;
+  padding: 0.8rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single .btnContainer .btnBox .stopBtn:hover {
+  background: #bb2121;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .btnContainer .btnBox .stopBtn.btnDisabled {
+  background: #412e2e;
+  cursor: default;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .btnContainer .btnBox .stopBtn.btnDisabled:hover {
+  background: #412e2e;
+}
+
+.single .btnContainer .btnBox .resignBtn {
+  height: 4rem;
+  width: 8rem;
+  background: #c22222;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single .btnContainer .btnBox .resignBtn:hover {
+  background: #971a1a;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .btnContainer .btnBox .resignBtn.btnDisabled {
+  background: #421a1a;
+  cursor: default;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .btnContainer .btnBox .resignBtn.btnDisabled:hover {
+  background: #421a1a;
+}
+
+.single .btnContainer > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 8rem;
+          flex: 1 1 8rem;
+}
+
+.single .pContainer {
+  width: 50vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin-top: 1rem;
+}
+
+.single .pContainer .pShadow {
+  height: 4rem;
+  margin: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single .pContainer .pShadow .pBox {
+  background: #BE8615;
+  color: #eee;
+  height: 5.8rem;
+  width: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.single .pContainer .pShadow .pBox .pName {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: auto;
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+}
+
+.single .pContainer .pShadow .pBox .pScore {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.single .pContainer .pShadow .pBox h6 {
+  font-size: 0.7rem;
+  font-weight: 350;
+  margin-left: auto;
+  padding-right: 0.4rem;
+}
+
+.single .pContainer > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 8rem;
+          flex: 1 1 8rem;
+}
+
+.single .endGame {
+  position: absolute;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #E4AF46;
+  color: #eee;
+  text-align: center;
+  padding-top: 17rem;
+}
+
+.single .endGame .whoWon {
+  font-weight: 700;
+  font-size: 5rem;
+}
+
+.single .endGame #wonText {
+  color: #5195b5;
+  font-size: 6rem;
+  font-weight: 700;
+}
+
+.single .endGame .endGameBtns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.single .endGame .endGameBtns .restartBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #7CA43C;
+  cursor: pointer;
+  height: 4rem;
+  width: 7.5rem;
+  border: 3px solid #526c28;
+  margin-right: 2rem;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .endGame .endGameBtns .restartBtn:hover {
+  background: #607f2e;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .endGame .endGameBtns .exitBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #DB3434;
+  cursor: pointer;
+  height: 4rem;
+  width: 7.5rem;
+  border: 3px solid #a51d1d;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .endGame .endGameBtns .exitBtn:hover {
+  background: #bb2121;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.single .endGame.endGameDisplay {
+  display: none;
+}
+
+.exit_multi {
+  position: absolute;
+  padding: 0.3rem 0.7rem;
+  top: 0.5rem;
+  right: 0.6rem;
+  color: #eee;
+  font-size: 1.5rem;
+  font-weight: 700;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.exit_multi:hover {
+  background: #d89a1f;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.multi {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #eee;
+}
+
+.multi h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.multi h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+body {
+  background: #E4AF46;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+/*# sourceMappingURL=main.css.map */

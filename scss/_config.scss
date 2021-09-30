@@ -1,0 +1,43 @@
+$primary-color: #E4AF46;
+$secondary-color: #BE8615;
+$white-color: #eee;
+$green-color: #7CA43C;
+$green-disabled-color: #333825;
+$red-color: #DB3434;
+$red-disabled-color: #412e2e;
+$darker-red-color: #c22222;
+$darker-red-disabled-color: #421a1a;
+$bot-color: rgb(40, 77, 94);
+$font-thin: 350;
+$font-normal: 400;
+$font-medium: 500;
+$font-bold: 700;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin transition-ease {
+    transition: all 0.5s ease-in-out;
+}
+
+// @mixin media-lt {
+//     @media screen and (max-width: 411px) {
+//         @content;
+//     }
+// }
+
+// @mixin media-bt {
+//     @media screen and (min-width: 412px) {
+//         @content;
+//     }
+// }
+
+// @mixin media-md {
+//     @media screen and (min-width: 686px) {
+//         @content;
+//     }
+// }
+

@@ -1,0 +1,449 @@
+.exit_single {
+    position: absolute;
+    padding: 0.3rem 0.7rem;
+    top: 0.5rem;
+    right: 0.6rem;
+    color: $white-color;
+    font-size: 1.5rem;
+    font-weight: $font-bold;
+    @include transition-ease;
+
+    &:hover {
+        background: darken($primary-color, 10%);
+        cursor: pointer;
+        @include transition-ease;
+    }
+}
+
+.single {
+    background: $primary-color;
+    color: $white-color;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+    h2 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .score {
+        width: 10rem;
+        display: flex;
+        flex-flow: row wrap;
+
+        h3 {
+            font-weight: $font-medium;
+            font-size: 1.5rem;
+        }
+    }
+
+    .score > * {
+        flex: 1 1 5rem;
+    }
+
+    .boxesContainer {
+        width: 80vw;
+        //background: darkseagreen;
+        display: flex;
+        flex-flow: row wrap;
+        margin-top: 2rem;
+        
+        // .rollBox {
+        //     background: $secondary-color;
+        //     height: 20rem;
+        //     width: 20rem;
+        //     display: flex;
+        //     flex-flow: row wrap;
+        //     margin-left: 2rem;
+
+        //     h4 {
+        //         position: absolute;
+        //         color: lighten($secondary-color, 40%);
+        //         padding: 0.4rem;
+        //         font-size: 1.5rem;
+        //     }
+
+        //     .diceShadow {
+        //         //background: #333;
+        //         height: 8rem;
+        //         margin: 0.8rem;
+        //         display: flex;
+        //         align-items: center;
+        //         text-align: center;
+        //         justify-content: center;
+        //         margin-top: 1.5rem;
+
+        //         .dice {
+        //             background: $white-color;
+        //             color: $secondary-color;
+        //             height: 6rem;
+        //             width: 6rem;
+        //             font-size: 4rem;
+        //             font-weight: $font-bold;
+        //             padding-top: 0.2rem;
+        //         }
+        //     }
+        // }
+
+        // .rollBox > * {
+        //     flex: 1 1 8rem;
+        // }
+
+        .box {
+            background: $secondary-color;
+            height: 20rem;
+            width: 20rem;
+            display: flex;
+            flex-flow: row wrap;
+
+            .box-title {
+                position: absolute;
+                color: lighten($secondary-color, 40%);
+                padding: 0.4rem;
+                font-size: 1.5rem;
+            }
+
+            .diceShadow {
+                //background: #333;
+                height: 8rem;
+                margin: 0.8rem;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                margin-top: 1.5rem;
+
+                .dice {
+                    background: $white-color;
+                    color: $secondary-color;
+                    height: 6rem;
+                    width: 6rem;
+                    font-size: 4rem;
+                    font-weight: $font-bold;
+                    padding-top: 0.2rem;
+                    @include transition-ease;
+
+                    &.diceDisplay {
+                        display: none;
+                    }
+
+                    &.diceClick {
+                        cursor: pointer;
+                    }
+
+                    &.diceColorRed {
+                        @include transition-ease;
+                        background: $red-color;
+                    }
+                }
+
+                .diceSafe {
+                    background: $white-color;
+                    color: $secondary-color;
+                    height: 6rem;
+                    width: 6rem;
+                    font-size: 4rem;
+                    font-weight: $font-bold;
+                    padding-top: 0.2rem;
+
+                    &.diceDisplay {
+                        display: none;
+                    }
+
+                    &.diceClick {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .box:first-child {
+            margin-right: 2rem;
+        }
+
+        .box > * {
+            flex: 1 1 8rem;
+        }
+    }
+
+    .boxesContainer > * {
+        flex: 1 1 20rem;
+    }
+
+    .btnContainer {
+        //background: cornflowerblue;
+        width: 50vw;
+        display: flex;
+        flex-flow: row wrap;
+        margin-top: 1.5rem;
+
+        .btnBox {
+            //background: #333;
+            height: 4rem;
+            margin: 0.8rem;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+
+            .rollBtn {
+                height: 4rem;
+                width: 8rem;
+                background: $green-color;
+                padding: 0.8rem;
+                text-align: center;
+                font-size: 2rem;
+                font-weight: $font-medium;
+                cursor: pointer;
+                @include transition-ease;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+
+                &:hover {
+                    background: darken($green-color, 10%);
+                    @include transition-ease;
+                }
+    
+                &.btnDisabled {
+                    background: $green-disabled-color; 
+                    cursor: default;
+                    @include transition-ease;
+    
+                    &:hover {
+                        background: $green-disabled-color;
+                    }
+                }
+    
+                // &.btnDisabledBot {
+                //     background: $bot-color; 
+                //     cursor: default;
+                //     @include transition-ease;
+    
+                //     &:hover {
+                //         background: $bot-color;
+                //     }
+                // }
+            }
+    
+            .stopBtn {
+                height: 4rem;
+                width: 8rem;
+                background: $red-color;
+                padding: 0.8rem;
+                text-align: center;
+                font-size: 2rem;
+                font-weight: $font-medium;
+                cursor: pointer;
+                @include transition-ease;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+
+                &:hover {
+                    background: darken($red-color, 10%);
+                    @include transition-ease;
+                }
+    
+                &.btnDisabled {
+                    background: $red-disabled-color;
+                    cursor: default;
+                    @include transition-ease;
+    
+                    &:hover {
+                        background: $red-disabled-color;
+                    }
+                }
+    
+                // &.btnDisabledBot {
+                //     background: $bot-color; 
+                //     cursor: default;
+                //     @include transition-ease;
+    
+                //     &:hover {
+                //         background: $bot-color;
+                //     }
+                // }
+            }
+    
+            .resignBtn {
+                height: 4rem;
+                width: 8rem;
+                background: $darker-red-color;
+                text-align: center;
+                font-size: 2rem;
+                font-weight: $font-medium;
+                cursor: pointer;
+                @include transition-ease;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+
+                &:hover {
+                    background: darken($darker-red-color, 10%);
+                    @include transition-ease;
+                }
+    
+                &.btnDisabled {
+                    background: $darker-red-disabled-color;
+                    cursor: default;
+                    @include transition-ease;
+    
+                    &:hover {
+                        background: $darker-red-disabled-color;
+                    }
+                }
+    
+                // &.btnDisabledBot {
+                //     background: $bot-color; 
+                //     cursor: default;
+                //     @include transition-ease;
+    
+                //     &:hover {
+                //         background: $bot-color;
+                //     }
+                // }
+            }
+        }
+    }
+
+    .btnContainer > * {
+        flex: 1 1 8rem;
+    }
+
+    .pContainer {
+        //background: cornflowerblue;
+        width: 50vw;
+        display: flex;
+        flex-flow: row wrap;
+        margin-top: 1rem;
+
+        .pShadow {
+            //background: #333;
+            height: 4rem;
+            margin: 0.8rem;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+
+            .pBox {
+                background: $secondary-color;
+                color: $white-color;
+                height: 5.8rem;
+                width: 10rem;
+                display: flex;
+                flex-flow: column nowrap;
+
+                .pName {
+                    font-size: 1rem;
+                    font-weight: $font-medium;
+                    margin-right: auto;
+                    padding-top: 0.2rem;
+                    padding-left: 0.5rem;
+                }
+    
+                .pScore {
+                    font-size: 2.5rem;
+                    font-weight: $font-bold;
+                    //padding-top: 0.2rem;
+                }
+    
+                h6 {
+                    font-size: 0.7rem;
+                    font-weight: $font-thin;
+                    margin-left: auto;
+                    padding-right: 0.4rem;
+                    //padding-bottom: 0.4rem;
+                }
+            }
+        }
+    }
+
+    .pContainer > * {
+        flex: 1 1 8rem;
+    }
+
+    .endGame {
+        position: absolute;
+        z-index: 1;
+        height: 100vh;
+        width: 100vw;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background: $primary-color;
+        color: $white-color;
+        text-align: center;
+        padding-top: 17rem;
+
+        .whoWon {
+            font-weight: $font-bold;
+            font-size: 5rem;
+        }
+
+        #wonText {
+            color: lighten($bot-color, 25%);
+            font-size: 6rem;
+            font-weight: $font-bold;
+        }
+
+        .endGameBtns {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            justify-items: center;
+            font-size: 1.5rem;
+            font-weight: $font-bold;
+            margin-top: 1rem;
+
+            .restartBtn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $green-color;
+                cursor: pointer;
+                height: 4rem;
+                width: 7.5rem;
+                border: 3px solid darken($green-color, 15%);
+                margin-right: 2rem;
+                @include transition-ease;
+    
+                &:hover {
+                    background: darken($green-color, 10%);
+                    @include transition-ease;
+                }
+            }
+    
+            .exitBtn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $red-color;
+                cursor: pointer;
+                height: 4rem;
+                width: 7.5rem;
+                border: 3px solid darken($red-color, 15%);
+                @include transition-ease;
+    
+                &:hover {
+                    background: darken($red-color, 10%);
+                    @include transition-ease;
+                }
+            }
+        }
+
+        &.endGameDisplay {
+            display: none;
+        }
+    }    
+}
+
