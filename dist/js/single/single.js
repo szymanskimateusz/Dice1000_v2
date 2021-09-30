@@ -79,8 +79,28 @@ async function toggleRound() {
     }
     
     if (diceClickCount >= 1 && rollCount < 3) {
+        console.log("wchodze");
         rollBtnEnable();
     }
+
+    if (rollCount == 3 && pMoveFirst[0] && scoreSum < 50) {
+        diceColorRed();
+        await sleep(500);
+        scoreSum = 0;
+        toggleStop();
+        console.log("no more moves round stops!");
+        return;
+    }
+
+    else if (rollCount == 3 && pMoveFirst[1] && scoreSum < 50) {
+        diceColorRed();
+        await sleep(500);
+        scoreSum = 0;
+        toggleStop();
+        console.log("no more moves round stops!");
+        return;
+    }
+
     resignBtnEnable();
     diceClickEnable();
 }
@@ -98,10 +118,10 @@ async function toggleStop() {
             scoreSum = 0;
             scoreTemp = 0;
             score = 0;
-            diceClickCount = 0;
             rollCount = 0;
 
             resetDice();
+            diceClickCount = 0;
 
             rollBtnDisable();
             stopBtnDisable();
@@ -141,10 +161,10 @@ async function toggleStop() {
             scoreSum = 0;
             scoreTemp = 0;
             score = 0;
-            diceClickCount = 0;
             rollCount = 0;
 
             resetDice();
+            diceClickCount = 0;
 
             rollBtnDisable();
             stopBtnDisable();
@@ -181,10 +201,10 @@ async function toggleStop() {
     scoreSum = 0;
     scoreTemp = 0;
     score = 0;
-    diceClickCount = 0;
     rollCount = 0;
 
     resetDice();
+    diceClickCount = 0;
 
     rollBtnDisable();
     stopBtnDisable();
@@ -804,6 +824,14 @@ function first50() {
 
     if (diceClickCount >= 1 && rollCount < 3) {
         rollBtnEnable();
+        
+        if (rollCount == 3 && pMoveFirst[0] && scoreSum < 50) {
+            toggleStop();
+        }
+
+        if (rollCount == 3 && pMoveFirst[1] && scoreSum < 50) {
+            toggleStop();
+        }
     }
 }
 
@@ -843,6 +871,13 @@ function first50Safe() {
 
     if (diceClickCount >= 1 && rollCount < 3) {
         rollBtnEnable();
+        // if (rollCount == 3 && pMoveFirst[0] && scoreSum < 50) {
+        //     toggleStop();
+        // }
+
+        // if (rollCount == 3 && pMoveFirst[1] && scoreSum < 50) {
+        //     toggleStop();
+        // }
     }
 }
 
