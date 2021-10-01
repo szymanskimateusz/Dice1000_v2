@@ -38,7 +38,8 @@ var diceArray = new Array(5);
 var safeArray = new Array(5);
 
 newGame();
-
+console.log("p1 move: " + pMoveFirst[0]);
+console.log("p2 move: " + pMoveFirst[1]);
 async function toggleRound() {
     rollBtnDisable();
     stopBtnDisable();
@@ -56,6 +57,7 @@ async function toggleRound() {
     //roll dice loop
     for (var i = 0; i < 5; i++) {
         if (!dice[i].classList.contains('diceDisplay')) {
+            //diceArray[i] = 1;
             diceArray[i] = Math.floor(Math.random()*6+1);     //roll dice
             console.log(diceArray[i]);
             await sleep(300);
@@ -83,6 +85,7 @@ async function toggleRound() {
         rollBtnEnable();
     }
 
+    checkSafe();
     if (rollCount == 3 && pMoveFirst[0] && scoreSum < 50) {
         diceColorRed();
         await sleep(500);
@@ -108,8 +111,9 @@ async function toggleRound() {
 async function toggleStop() {
     console.log("Toggling Stop!");
     if (whosRound) {
-        if (pMoveFirst[0] && score >= 50) {
+        if (pMoveFirst[0] && scoreSum >= 50) {
             pMoveFirst[0] = false;
+            console.log("P1 first move disabled!");
             console.log("pmove po 1 if: " + pMoveFirst[0]);
             whosRound = false;
             focusP2();
@@ -151,8 +155,9 @@ async function toggleStop() {
     }
 
     else {
-        if (pMoveFirst[1] && score >= 50) {
+        if (pMoveFirst[1] && scoreSum >= 50) {
             pMoveFirst[1] = false;
+            console.log("P2 first move disabled!");
             console.log("pmove po 1 if: " + pMoveFirst[1]);
             whosRound = true;
             focusP1();
@@ -213,6 +218,7 @@ async function toggleStop() {
     await sleep(300);
     rollBtnEnable();
     resignBtnEnable();
+    console.log("DiceClickCount at the end of stop: " + diceClickCount);
 }
 
 function toggleResign() {
@@ -396,12 +402,14 @@ function checkSafe() {
         score += 1000;
         resultsCount += 5;
         noPoints = false;
+        return;
     }
 
     if ((counter[1] == 1 && counter[2] == 1 && counter[3] == 1 && counter[4] == 1 && counter[5] == 1) || (counter[1] == 1 && counter[2] == 1 && counter[3] == 1 && counter[4] == 1 && counter[0] == 1)) {
         score += 150;
         resultsCount += 5;
         noPoints = false;
+        return;
     }
 
     if (counter[0] == 4) {
@@ -416,19 +424,19 @@ function checkSafe() {
         noPoints = false;
     }
 
-    if (counter[4] == 2 || counter[0] == 2) {
-        if (counter[4] == 2) {
-            score += 10;
-            resultsCount += 2;
-            noPoints = false;
-        }
-    
-        if (counter[0] == 2) {
-            score += 20;
-            resultsCount += 2;
-            noPoints = false;
-        }
+    //if (counter[4] == 2 || counter[0] == 2) {
+    if (counter[4] == 2) {
+        score += 10;
+        resultsCount += 2;
+        noPoints = false;
     }
+
+    if (counter[0] == 2) {
+        score += 20;
+        resultsCount += 2;
+        noPoints = false;
+    }
+    //}
 
     if (counter[4] == 1) {
         score += 5;
@@ -447,13 +455,13 @@ function checkSafe() {
             score += ((i + 1) * 20);
             noPoints = false;
             
-            if (resultsCount <= 1) {
+            //if (resultsCount <= 1) {
                 resultsCount += 4;
-            }
+           // }
 
-            else {
-                resultsCount = 5;
-            }
+            // else {
+            //     resultsCount = 5;
+            // }
         }
     }
 
@@ -462,13 +470,13 @@ function checkSafe() {
             score += ((i + 1) * 10);
             noPoints = false;
             
-            if (resultsCount <= 2) {
+           // if (resultsCount <= 2) {
                 resultsCount += 3;
-            }
+           // }
 
-            else {
-                resultsCount = 5;
-            }
+            // else {
+            //     resultsCount = 5;
+            // }
         }
     }
 }
@@ -616,7 +624,7 @@ function diceClick0() {
     diceSafe[0].innerText = safeArray[0];
     diceSafe[0].classList.remove('diceDisplay');
     dice[0].classList.add('diceDisplay');
-    diceClickCount++;
+    
 
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -632,7 +640,7 @@ function diceClick1() {
     diceSafe[1].innerText = safeArray[1];
     diceSafe[1].classList.remove('diceDisplay');
     dice[1].classList.add('diceDisplay');
-    diceClickCount++;
+    
 
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -648,7 +656,7 @@ function diceClick2() {
     diceSafe[2].innerText = safeArray[2];
     diceSafe[2].classList.remove('diceDisplay');
     dice[2].classList.add('diceDisplay');
-    diceClickCount++;
+    
 
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -664,7 +672,7 @@ function diceClick3() {
     diceSafe[3].innerText = safeArray[3];
     diceSafe[3].classList.remove('diceDisplay');
     dice[3].classList.add('diceDisplay');
-    diceClickCount++;
+    
 
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -680,7 +688,9 @@ function diceClick4() {
     diceSafe[4].innerText = safeArray[4];
     diceSafe[4].classList.remove('diceDisplay');
     dice[4].classList.add('diceDisplay');
-    diceClickCount++;
+    // if (diceClickCount < 5) {
+    //     diceClickCount++;
+    // }
 
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -696,7 +706,7 @@ function diceSafeClick0() {
     dice[0].innerText = diceArray[0];
     dice[0].classList.remove('diceDisplay');
     diceSafe[0].classList.add('diceDisplay');
-    diceClickCount--;
+    
     
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -714,7 +724,7 @@ function diceSafeClick1() {
     dice[1].innerText = diceArray[1];
     dice[1].classList.remove('diceDisplay');
     diceSafe[1].classList.add('diceDisplay');
-    diceClickCount--;
+    
     
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -732,7 +742,7 @@ function diceSafeClick2() {
     dice[2].innerText = diceArray[2];
     dice[2].classList.remove('diceDisplay');
     diceSafe[2].classList.add('diceDisplay');
-    diceClickCount--;
+    
     
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -750,7 +760,7 @@ function diceSafeClick3() {
     dice[3].innerText = diceArray[3];
     dice[3].classList.remove('diceDisplay');
     diceSafe[3].classList.add('diceDisplay');
-    diceClickCount--;
+    
     
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -768,7 +778,9 @@ function diceSafeClick4() {
     dice[4].innerText = diceArray[4];
     dice[4].classList.remove('diceDisplay');
     diceSafe[4].classList.add('diceDisplay');
-    diceClickCount--;
+    // if (diceClickCount > 0) {
+    //     diceClickCount--;
+    // }
     
     checkSafe();
     scoreSum = scoreTemp + score;
@@ -788,6 +800,7 @@ function resetDice() {
     diceSafeClick2();
     diceSafeClick3();
     diceSafeClick4();
+    diceClickCount = 0;
 
     //reset dice loop
     for (var i = 0; i < 5; i++) {
@@ -797,6 +810,10 @@ function resetDice() {
 
 //diceClick first move 50pts validation and minimum to roll
 function first50() {
+    if (diceClickCount < 5) {
+        diceClickCount++;
+    }
+
     if (whosRound) {
         if (pMoveFirst[0] && scoreSum >= 50) {
             stopBtnEnable();
@@ -837,6 +854,10 @@ function first50() {
 
 //diceClickSafe first move 50pts validation and minimum to roll
 function first50Safe() {
+    if (diceClickCount > 0) {
+        diceClickCount--;
+    }
+
     if (whosRound) {
         if (pMoveFirst[0] && scoreSum < 50) {
             stopBtnDisable();
@@ -890,6 +911,7 @@ function diceClickCountF() {
             scoreTemp = scoreSum;
             rollCount = 0;
             resetDice();
+            rollBtnEnable();
         }
     }
 }
